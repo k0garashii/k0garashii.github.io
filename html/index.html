@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sasha Menez | Portfolio</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#Top-Page">
+                <div class="logo-img"><img src="../ImageMoi.JPG"></div>
+                <div class="logo">Sasha Menez</div>
+            </a>
+            <ul>
+                <!-- Bouton de langue -->
+                <li><button id="lang-switch" class="filter-btn" style="padding: 5px 10px; margin-top: -5px;">EN</button></li>
+                <li><a href="#projects" data-i18n="nav-projects">Projets</a></li>
+                <li><a href="#about" data-i18n="nav-about">À propos</a></li>
+                <li><a href="https://github.com/K0garashii" target="_blank">GitHub</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="Top-Page" class="hero">
+        <h1 data-i18n-html="hero-title">Développeur de <span class="highlight">Simulations</span> & <span class="highlight">Jeux Vidéo</span></h1>
+        <p data-i18n="hero-desc">Passionné par les mathématiques appliquées, la physique et le développement bas niveau (C/C++).</p>
+        <a href="#projects" class="btn" data-i18n="hero-btn">Voir mes travaux</a>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2 data-i18n="projects-title">Mes Projets</h2>
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all" data-i18n="filter-all">Tous</button>
+            <button class="filter-btn" data-filter="game" data-i18n="filter-game">Jeux Vidéo</button>
+            <button class="filter-btn" data-filter="science" data-i18n="filter-science">Maths & Physique</button>
+            <button class="filter-btn" data-filter="AI" data-i18n="filter-ai">IA</button>
+            <button class="filter-btn" data-filter="Upcoming" data-i18n="filter-upcoming">À venir</button>
+        </div>
+
+        <div class="project-grid">
+            <!-- Projet 1 -->
+            <div class="project-card" data-category="game">
+                <a href="Chromestesia/chromestesia.html" class="project-card-link">
+                    <img src="Chromestesia/Chromestesia_Logo.png">
+                    <div class="project-content">
+                        <span class="badge">Unity</span>
+                        <span class="badge" data-i18n="duration-3m">3 mois</span>
+                        <span class="badge">Inter-Cursus</span>
+                        <h3 data-i18n="p1-title">Action 2.5D</h3>
+                        <p data-i18n="p1-desc">Jeu inter-Cursus (Sound-Design, Game Programming, Game Design) sur Unity en 2.5D</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Projet 2 -->
+            <div class="project-card" data-category="game">
+                <a href="TowerDefense/tower_defense.html" class="project-card-link">
+                    <img src="TowerDefense/TD_Logo.png">
+                    <div class="project-content">
+                        <span class="badge">C++</span>
+                        <span class="badge">Raylib</span>
+                        <span class="badge" data-i18n="duration-2w">2 semaines</span>
+                        <span class="badge" data-i18n="group-2">Groupe de 2</span>
+                        <h3 data-i18n="p2-title">Tower Defense</h3>
+                        <p data-i18n="p2-desc">Création d'un tower défense sur 2 semaines avec éditeur de map personnalisé</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Projet 3 (Canon) -->
+            <div class="project-card" data-category="science">
+                <a href="Canon/canon.html" class="project-card-link">
+                    <img src="Canon/Canon_Logo.png">
+                    <div class="project-content">
+                        <span class="badge" data-i18n="maths">Mathématiques</span>
+                        <span class="badge">Unity</span>
+                        <span class="badge" data-i18n="duration-2w">2 semaines</span>
+                        <h3 data-i18n="p3-title">Simulation de tir d'un canon en 2D</h3>
+                        <p data-i18n="p3-desc">Simulation de trajectoire d'un tir de canon et d'un impact sur un pendule, résultant en un mouvement oscillatoire</p>
+                    </div>
+                </a>
+            </div>
+            <!-- Projet 4 -->
+            <div class="project-card" data-category="science">
+                <a href="Rubik'sCube/quater_cube.html" class="project-card-link">
+                    <img src="Rubik'sCube/QuaterCubeLogo.png">
+                    <div class="project-content">
+                        <span class="badge">Mathématiques</span>
+                        <span class="badge">Unity</span>
+                        <span class="badge">2 semaines</span>
+                        <span class="badge">Groupe de 3</span>
+                        <h3 data-i18n="p4-title">Rubik's Cube</h3>
+                        <p data-i18n="p4-desc">Reproduction d'un Rubik's cube et de ses mouvements à l'aide de Quaternions, entièrements recodés</p>
+                    </div>
+                </a>
+            </div>
+            <!-- Projet 5 -->
+            <div class="project-card" data-category="science">
+                <a href="Collision3D/collision3D.html" class="project-card-link">
+                    <img src="Collision3D/Collision_Logo.png">
+                    <div class="project-content">
+                        <span class="badge">Mathématiques</span>
+                        <span class="badge">Unity</span>
+                        <span class="badge">2 semaines</span>
+                        <h3 data-i18n="p5-title">Collisions 3D dynamiques</h3>
+                        <p data-i18n="p5-desc">Recoder les collisions 3D entre une sphère en mouvement et un cube fixe. Utilisation des sommes de Minkowski </p>
+                    </div>
+                </a>
+            </div>
+            <!-- Projet 6 -->
+            <div class="project-card" data-category="science">
+                <a href="ProceduralGeneration/procedural_generation.html" class="project-card-link">
+                    <img src="ProceduralGeneration/PG_Logo.png">
+                    <div class="project-content">
+                        <span class="badge">Mathématiques</span>
+                        <span class="badge">Unity</span>
+                        <span class="badge">4h</span>
+                        <h3 data-i18n="p6-title">Génération procédurale de terrain</h3>
+                        <p data-i18n="p6-desc"></p>
+                    </div>
+                </a>
+            </div>
+            <!-- Projet 7 -->
+            <div class="project-card" data-category="science">
+                <a href="SolarSystem/solar_system.html" class="project-card-link">
+                    <img src="SolarSystem/image1.png">
+                    <div class="project-content">
+                        <span class="badge">Mathématiques</span>
+                        <span class="badge">Unity</span>
+                        <span class="badge">2 semaines</span>
+                        <span class="badge">Groupe de 3</span>
+                        <h3 data-i18n="p7-title">Système Solaire</h3>
+                        <p data-i18n="p7-desc">Reproduction du système solaire à l'aide de champs vectoriels</p>
+                    </div>
+                </a>
+            </div>
+            <!-- Projet 8 -->
+            <div class="project-card" data-category="science">
+                <a href="Tornado/tornado.html" class="project-card-link">                    
+                    <img src="Tornado/TornadoLogo.png">
+                    <div class="project-content">
+                        <span class="badge">Mathématiques</span>
+                        <span class="badge">Unreal</span>
+                        <span class="badge">Projet Perso</span>
+                        <span class="badge">1 semaine</span>
+                        <h3 data-i18n="p8-title">Simulation de Tornade</h3>
+                        <p data-i18n="p8-desc">Simuler l'impact d'une tornade à l'aide des équations de Burgers-Rott et des champs de vecteur</p>
+                    </div>
+                </a>
+            </div>
+            <!-- Projet 9 -->
+            <div class="project-card" data-category="Upcoming">
+                <a href="test" class="project-card-link">
+                    <div class="project-img" style="background-color: #222;"></div>
+                    <div class="project-content">
+                        <span class="badge">Unity</span>
+                        <span class="badge">Unreal</span>
+                        <span class="badge">AI</span>
+                        <span class="badge">En cours</span>
+                        <h3 data-i18n="p9-title">Deep Learning + Simulation AI</h3>
+                        <p data-i18n="p9-desc">Recréer des comportements réalistes sur des ennemis dans un jeu TPS</p>
+                    </div>
+                </a>
+            </div>
+            <!-- Projet 10 -->
+            <div class="project-card" data-category="Upcoming">
+                <a href="test" class="project-card-link">
+                    <div class="project-img" style="background-color: #222;"></div>
+                    <div class="project-content">
+                        <span class="badge">Unity</span>
+                        <span class="badge">AI</span>
+                        <h3 data-i18n="p10-title">Stagiaire</h3>
+                        <p data-i18n="p10-desc">A développer</p>
+                    </div>
+                </a>
+            </div>
+            <!-- Projet 11 -->
+            <div class="project-card" data-category="Upcoming">
+                <a href="moteur.html" class="project-card-link">
+                    <div class="project-img" style="background-color: #222;"></div>
+                    <div class="project-content">
+                        <span class="badge">C++</span>
+                        <span class="badge">Vulkan</span>
+                        <span class="badge" data-i18n="maths">Mathématiques</span>
+                        <span class="badge" data-i18n="group-3">Groupe de 3</span>
+                        <h3 data-i18n="p11-title">Création d'un moteur de jeu</h3>
+                        <p data-i18n="p11-desc">À développer</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="../script.js"></script>
+</body>
+</html>
