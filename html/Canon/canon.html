@@ -11,7 +11,7 @@
 <body class="project-detail-page">
 
     <nav class="detail-nav">
-        <a href="../index.html" class="back-btn">
+        <a href="/index.html" class="back-btn">
             <span class="arrow">←</span>
             <span class="text">Retour au portfolio</span>
         </a>
@@ -19,39 +19,81 @@
 
     <main class="detail-container">
         <header class="detail-header">
-            <h1>Création d'un moteur de jeu (Vulkan)</h1>
+            <h1>Simulation d'un tir de canon en 2D</h1>
             <div class="badge-container">
-                <span class="badge">C++</span>
-                <span class="badge">Vulkan</span>
-                <span class="badge">Architecture logicielle</span>
+                <span class="badge" data-i18n="maths">Mathématiques</span>
+                <span class="badge">Unity</span>
+                <span class="badge" data-i18n="duration-2w">2 semaines</span>
             </div>
         </header>
 
-        <section class="detail-content">
+        <section class="detail-content text-full">
             <div class="detail-text">
                 <h2>Objectif du projet</h2>
-                <p>L'objectif était de comprendre les couches bas-niveau des API graphiques modernes en implémentant une pipeline de rendu complète.</p>
-                
+                <br>    
+                <p>Ce rapport décrit le développement d’un projet de simulation de canon en 2D, incluant la trajectoire d'un projectile et sa collision avec un pendule. Le projet vise à simuler le mouvement d’un projectile tiré par un canon, en utilisant les équations de la cinématique, à la fois dans un environnement sans frottements et dans un autre environnement plus réaliste incluant la résistance de l'air. Il simule également l'interaction lors de la collision du projectile avec un pendule cible. Le projet a été développé à l’aide du langage de programmation C# et du moteur de jeu Unity.</p>
+                <br>
                 <h2>Défis Mathématiques</h2>
-                <p>Pour la gestion des caméras, j'ai dû implémenter des matrices de projection :</p>
-                <!-- Exemple d'équation LaTeX -->
-                <p>\[ P = \begin{pmatrix} \frac{1}{tan(\alpha/2)} & 0 & 0 & 0 \\ 0 & \frac{1}{tan(\alpha/2)} & 0 & 0 \\ 0 & 0 & \frac{f+n}{f-n} & \frac{-2fn}{f-n} \\ 0 & 0 & 1 & 0 \end{pmatrix} \]</p>
-            </div>
-
-            <div class="detail-media">
-                <!-- Ici tu peux mettre une vidéo de ton projet ou une grande image -->
-                <div class="placeholder-media">Vidéo du moteur en action</div>
+                <br>
+                <p>- Calculer l'équation horaire de l'obus du canon<br>
+                   - Calculer la force résultante à l'impact sur le pendule<br>
+                   - Calculer la trajectoire de l'obus en prenant en compte la friction de l'air<br>
+                   - Simuler la trajectoire de l'obus en fonction de paramètres initiaux particuliers</p>
             </div>
         </section>
 
-        <section class="code-section">
-            <h2>Aperçu du Code (C++)</h2>
-            <pre><code>
-// Initialisation de l'instance Vulkan
-VkInstanceCreateInfo createInfo{};
-createInfo.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
-// ... suite du code
-            </code></pre>
+        <!-- Section Équations - Bloc Trajectoire -->
+        <section class="text-top-img-bottom">
+            <div class="content">
+                <h2>📐 Trajectoire du Projectile</h2>
+                <br>
+                <h3>Sans forces de frottement</h3>
+                <p class="equation">\[ V_x(t) = v_0 \cos(\alpha) \]</p>
+                <p class="equation">\[ V_y(t) = -gt + v_0 \sin(\alpha) \]</p>
+                <p class="equation">\[ x(t) = v_0 \cos(\alpha) \cdot t + x_0 \]</p>
+                <p class="equation">\[ y(t) = -\frac{1}{2}gt^2 + v_0 \sin(\alpha) \cdot t + y_0 \]</p>
+                <p class="equation">\[ x(y) = -\frac{g}{2(v_0^2cos^2(\alpha))} (x - x_0)^2 + tan(\alpha)(x - x_0) + y_0 \]</p>
+                <br>
+                <h3>Avec forces de frottement</h3>
+                <p class="equation">\[ x(t) = \frac{m}{k} v_0 \cos(\alpha) \left(1 - e^{-\frac{k \cdot t}{m}}\right) + x_0 \]</p>
+                <p class="equation">\[ y(t) = \frac{m}{k} v_0 \sin(\alpha) + \frac{mg}{k} \left(1 - e^{-\frac{k \cdot t}{m}}\right) - \frac{m}{k} g \cdot t + y_0 \]</p>
+            </div>
+            <div class="media">
+                <img src="image1.png" alt="image équations trajectoire" class="rendered-img">
+            </div>
+        </section>
+
+        <!-- Section Équations - Bloc Impact -->
+        <section class="text-left-img-right">
+            <div class="content">
+                <h2>💥 Force à l'Impact</h2>
+                <br>
+                <p><strong>B</strong> : box (pendule)<br>
+                <strong>P</strong> : projectile (obus)</p>
+                <br>
+                <p>Vitesse linéaire de la boîte après impact :</p>
+                <p class="equation">\[ V_B = \frac{(m_B - m_P) \cdot v_B + 2 \cdot m_P \cdot v_P}{m_B + m_P}\]</p>
+                <br>
+                <p>Vitesse angulaire de la boîte après impact :</p>
+                <p class="equation">\[ \omega_B = \frac{V_B}{r}\]</p>
+            </div>
+            <div class="media">
+                <img src="image2.png" alt="image équations trajectoire" class="rendered-img">
+            </div>
+        </section>
+
+        <section class="download-section">
+            <div class="download-card">
+                <div class="download-icon">📦</div>
+                <div class="download-info">
+                    <h3>Télécharger le Projet</h3>
+                    <p>Fichier ZIP contenant la build du projet</p>
+                </div>
+                <a href="TP_Canon.zip" class="download-btn" download>
+                    <span class="download-text">Télécharger</span>
+                    <span class="download-arrow">↓</span>
+                </a>
+            </div>
         </section>
     </main>
 </body>

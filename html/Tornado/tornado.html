@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <title>Détails du Projet | Moteur Vulkan</title>
     <link rel="stylesheet" href="../../css/annexe.css">
-    <!-- Pour afficher de belles équations maths si besoin -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body class="project-detail-page">
 
     <nav class="detail-nav">
-        <a href="../index.html" class="back-btn">
+        <a href="/index.html" class="back-btn">
             <span class="arrow">←</span>
             <span class="text">Retour au portfolio</span>
         </a>
@@ -19,39 +18,131 @@
 
     <main class="detail-container">
         <header class="detail-header">
-            <h1>Création d'un moteur de jeu (Vulkan)</h1>
+            <h1>Simulation d'une tornade dans un environnement 3D</h1>
             <div class="badge-container">
-                <span class="badge">C++</span>
-                <span class="badge">Vulkan</span>
-                <span class="badge">Architecture logicielle</span>
+                <span class="badge" data-i18n="maths">Mathématiques</span>
+                <span class="badge">Unreal 5.6</span>
+                <span class="badge" data-i18n="duration-1w">1 semaine</span>
+                <span class="badge">Projet Perso</span>
             </div>
         </header>
 
-        <section class="detail-content">
+        <section class="detail-content text-full">
             <div class="detail-text">
                 <h2>Objectif du projet</h2>
-                <p>L'objectif était de comprendre les couches bas-niveau des API graphiques modernes en implémentant une pipeline de rendu complète.</p>
-                
+                <br>    
+                <p>Ce rapport décrit le développement d'un projet de simulation d'une tornade dans un environnement 3D, incluant la modélisation des forces et des mouvements associés. Le projet vise à simuler le comportement dynamique d'une tornade en utilisant les équations de Burgers-Rott, dans un environnement réaliste. Le projet a été développé à l’aide du moteur de jeu Unreal Engine 5.6.</p>
+                <br>
                 <h2>Défis Mathématiques</h2>
-                <p>Pour la gestion des caméras, j'ai dû implémenter des matrices de projection :</p>
-                <!-- Exemple d'équation LaTeX -->
-                <p>\[ P = \begin{pmatrix} \frac{1}{tan(\alpha/2)} & 0 & 0 & 0 \\ 0 & \frac{1}{tan(\alpha/2)} & 0 & 0 \\ 0 & 0 & \frac{f+n}{f-n} & \frac{-2fn}{f-n} \\ 0 & 0 & 1 & 0 \end{pmatrix} \]</p>
-            </div>
-
-            <div class="detail-media">
-                <!-- Ici tu peux mettre une vidéo de ton projet ou une grande image -->
-                <div class="placeholder-media">Vidéo du moteur en action</div>
+                <br>
+                <p>- Appliquer les équations de Burgers-Rott sur Unreal Engine<br>
+                   - Représenter le "bruit" de la tornade à l'aide d'une force de turbulence<br>
+                   - Calculer le facteur d'évasement de la tornade pour une représentation plus réaliste<br>
+                   - Transiter d'un état d'aspiration à un état d'expulsion</p>
+                <br>
             </div>
         </section>
 
-        <section class="code-section">
-            <h2>Aperçu du Code (C++)</h2>
-            <pre><code>
-// Initialisation de l'instance Vulkan
-VkInstanceCreateInfo createInfo{};
-createInfo.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
-// ... suite du code
+        <section class="text-top-img-bottom">
+            <div class="content">
+                <h2>Comprendre le fonctionnement de la tornade</h2>
+                <p>
+                    Concrètement, une tornade possède plusieurs caractéristiques physiques distinctes, telles que la rotation rapide de l'air, une pression atmosphérique basse au centre, et des forces de turbulence qui influencent son comportement dynamique.
+                    Dans ce projet, je me suis concentré sur 4 facteurs physiques majeurs.<br><br>
+                </p>
+                <h3>Le bruit</h3>
+                <pre><code>
+float time = DeltaTime * 0.5f;
+FVector Noise = FVector(
+FMath::PerlinNoise2D(FVector2D(elementPos.X + time, elementPos.Y)) * 0.5f,
+0.0f,
+FMath::PerlinNoise2D(FVector2D(elementPos.Z, elementPos.Y + time)) * 0.5f
+);
+Noise *= TurbulenceStrength;
+                </code></pre>
+                <h3>Le gamma (force de rotation)</h3>
+                <pre><code>
+//Paramètres initiaux
+FVector transformPos = spellPos;
+float z = elementPos.Z - transformPos.Z;
+
+elementPos.Z = 0;
+transformPos.Z = 0;
+
+float dist = FVector::Distance(elementPos, transformPos);
+
+FVector radial = elementPos - transformPos;
+radial.Normalize();
+FVector tangential = FVector::UpVector.Cross(radial);
+
+float height = FMath::Max(0.f, z);
+float height01 = FMath::Clamp(height / TornadoHeight, 0.f, 1.f);
+
+// Calcul du gamma en fonction de la hauteur
+float gammaAtHeight = FMath::Lerp(
+GammaBase, 
+GammaTop, 
+FMath::Pow(height01, GammaExponent)
+);
+                </code></pre>
+                <h3>L'écoulement (ou "champ de vitesse")</h3>
+                <p>
+                    Il est modélisé à l'aide des 3 éléments majeurs qui forment une tornade : la vitesse radiale \( V_r \), la vitesse tangente \( V_t \) et la vitesse verticale \( V_z \).<br><br>
+                </p>
+                <pre><code>
+<span class="comment">//On passe de l'aspiration (-Vr) à l'expulsion (+Vr)</span>
+<span class="type">float</span> <span class="variable">Suction</span> = -A * dist;
+<span class="type">float</span> <span class="variable">PushOut</span> = A * dist * FlareStrength;
+
+<span class="type">float</span> <span class="variable">Vtheta</span> = gammaAtHeight / (2 * PI * dist) * (1 - <span class="className">FMath</span>::<span class="function">Exp</span>(A * dist * dist / (2 * Nu)));
+<span class="type">float</span> <span class="variable">Vz</span> = 2 * A * z;
+<span class="comment">// Calcul du facteur d'évasement (0 en bas, 1 tout en haut avec une transition douce)</span>
+<span class="type">float</span> <span class="variable">t</span> = <span class="className">FMath</span>::<span class="function">Clamp</span>((height01 - OutflowHeightStart) / (1.0 - OutflowHeightStart), 0.0, 1.0);
+<span class="comment">//Formule du smoothStep</span>
+<span class="type">float</span> <span class="variable">FlareFactor</span> = t * t * (3.0 - 2.0 * t);
+
+<span class="comment">//On combine les vitesses pour obtenir la vitesse finale de chaque composante</span>
+<span class="type">float</span> <span class="variable">FinalVr</span> = <span class="className">FMath</span>::<span class="function">Lerp</span>(<span class="variable">Suction</span>, <span class="variable">PushOut</span>, <span class="variable">FlareFactor</span>);
+<span class="type">float</span> <span class="variable">FinalVtheta</span> = <span class="variable">Vtheta</span> * (1.0 - (<span class="variable">FlareFactor</span> * 0.5));
+<span class="type">float</span> <span class="variable">FinalVz</span> = <span class="variable">Vz</span> * (1.0 - <span class="variable">FlareFactor</span>);
             </code></pre>
+                <br>
+                </div>
+            <div class="media">
+                <img src="image1.png" alt="image équations trajectoire" class="rendered-img">
+            </div>
+        </section>
+        
+        <section class="text-left-img-right">
+            <div class="content">
+                <h2>💥 Force à l'Impact</h2>
+                <br>
+                <p><strong>B</strong> : box (pendule)<br>
+                <strong>P</strong> : projectile (obus)</p>
+                <br>
+                <p>Vitesse linéaire de la boîte après impact :</p>
+                <p>\[ V_B = \frac{(m_B - m_P) \cdot v_B + 2 \cdot m_P \cdot v_P}{m_B + m_P}\]</p>
+                <br>
+                <p>Vitesse angulaire de la boîte après impact :</p>
+                <p>\[ \omega_B = \frac{V_B}{r}\]</p>
+            </div>
+            <div class="media">
+                <img src="image2.png" alt="image équations trajectoire" class="rendered-img">
+            </div>
+        </section>
+
+        <section class="download-section">
+            <div class="download-card">
+                <div class="download-icon">📦</div>
+                <div class="download-info">
+                    <h3>Télécharger le Projet</h3>
+                    <p>Fichier ZIP contenant la build du projet</p>
+                </div>
+                <a href="TP_Canon.zip" class="download-btn" download>
+                    <span class="download-text">Télécharger</span>
+                    <span class="download-arrow">↓</span>
+                </a>
+            </div>
         </section>
     </main>
 </body>
