@@ -28,6 +28,21 @@ body {
 .detail-header { margin-bottom: 0px; }
 .detail-header h1 { font-size: 2.5rem; margin-bottom: 15px; }
 
+.detail-video {
+    margin: 20px 0 40px;
+    aspect-ratio: 16 / 9;
+}
+
+.hero-video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    border-radius: 12px;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    background: #0b1220;
+}
+
 .detail-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -364,7 +379,7 @@ pre {
 }
 
 .function {
-    color: #efff87;
+    color: #c4cc8e;
 }
 
 .className {
