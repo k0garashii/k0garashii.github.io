@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Détails du Projet | Moteur Vulkan</title>
     <link rel="stylesheet" href="../../css/annexe.css">
-    <!-- Pour afficher de belles équations maths si besoin -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
@@ -19,39 +18,55 @@
 
     <main class="detail-container">
         <header class="detail-header">
-            <h1>Création d'un moteur de jeu (Vulkan)</h1>
+            <h1>Rubik's Cube</h1>
             <div class="badge-container">
-                <span class="badge">C++</span>
-                <span class="badge">Vulkan</span>
-                <span class="badge">Architecture logicielle</span>
+                <span class="badge" data-i18n="maths">Mathématiques</span>
+                <span class="badge">Unity</span>
+                <span class="badge" data-i18n="duration-2w">2 semaines</span>
+                <span class="badge" data-i18n="group-3">Groupe de 3</span>
             </div>
         </header>
 
-        <section class="detail-content">
+        <section class="detail-content text-full">
             <div class="detail-text">
                 <h2>Objectif du projet</h2>
-                <p>L'objectif était de comprendre les couches bas-niveau des API graphiques modernes en implémentant une pipeline de rendu complète.</p>
-                
+                <br>
+                <p>QuaterCube est un projet Unity visant à explorer et maîtriser l'utilisation des quaternions pour gérer les rotations 3D. Il s'agit d'une simulation de Rubik's Cube entièrement implémentée en utilisant uniquement des quaternions, recodés en parti.</p>
+                <br>
                 <h2>Défis Mathématiques</h2>
-                <p>Pour la gestion des caméras, j'ai dû implémenter des matrices de projection :</p>
-                <!-- Exemple d'équation LaTeX -->
-                <p>\[ P = \begin{pmatrix} \frac{1}{tan(\alpha/2)} & 0 & 0 & 0 \\ 0 & \frac{1}{tan(\alpha/2)} & 0 & 0 \\ 0 & 0 & \frac{f+n}{f-n} & \frac{-2fn}{f-n} \\ 0 & 0 & 1 & 0 \end{pmatrix} \]</p>
+                <br>
+                <p>
+                    - Comprendre et appliquer les rotations par quaternions dans Unity. <br>
+                    - Manipuler les transformations 3D sans gimbal lock. <br>
+                    - Reproduire les mouvements complexes d'un Rubik's Cube en utilisant la composition de quaternions.
+                </p>
+                <br>
+                <h2>Actions</h2>
+                <br>
+                <p>
+                    <span class="highlight">Générer</span> : Crée un nouveau Rubik's Cube en utilisant la taille sélectionnée, la profondeur de mélange et la sensibilité de la souris.<br>
+                    <span class="highlight">Inverser</span> : Résout le Rubik's Cube en inversant toutes les rotations qui ont été effectuées précédemment.<br>
+                    <span class="highlight">Sauvegarder</span> : Sauvegarde l'état actuel du cube (pour que vous puissiez quitter le jeu et garder votre progression).<br>
+                    <span class="highlight">Récupérer</span> : Recrée le cube en fonction des données sauvegardées, restaurant le dernier état connu.
+                </p>
             </div>
-
-            <div class="detail-media">
-                <!-- Ici tu peux mettre une vidéo de ton projet ou une grande image -->
-                <div class="placeholder-media">Vidéo du moteur en action</div>
+        </section>
+        
+        <section class="detail-content text-full">
+            <div class="detail-text">
+                <h2>Représentation visuelle</h2>
             </div>
         </section>
 
-        <section class="code-section">
-            <h2>Aperçu du Code (C++)</h2>
-            <pre><code>
-// Initialisation de l'instance Vulkan
-VkInstanceCreateInfo createInfo{};
-createInfo.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
-// ... suite du code
-            </code></pre>
+        <section class="detail-video">
+            <iframe class="hero-video"
+                src="https://www.youtube.com/embed/vks3k49BSY8?si=wBaMONCcWM6jl6lG" 
+                title="Rubik's Cube Simulation with Quaternions in Unity | K0garashii" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+            </iframe>
         </section>
     </main>
 </body>
