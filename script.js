@@ -3,10 +3,13 @@ const translations = {
     fr: {
         "nav-projects": "Projets",
         "nav-about": "À propos",
+        "nav-domains": "Domaines",
         "hero-title": 'Développeur de <span class="highlight">Simulations</span> & <span class="highlight">Jeux Vidéo</span>',
         "hero-desc": "Passionné par les mathématiques appliquées, la physique et le développement bas niveau (C/C++).",
         "hero-btn": "Voir mes travaux",
         "projects-title": "Mes Projets",
+        "about-title": "A propos",
+        "about-desc": "Section a completer: parcours, points forts, et liens utiles.",
         "domains-title": "Domaines",
         "domain-maths-title": "Maths",
         "domain-maths-desc": "Modelisation, optimisation et geometrie pour comprendre les systemes complexes.",
@@ -44,10 +47,13 @@ const translations = {
     en: {
         "nav-projects": "Projects",
         "nav-about": "About",
+        "nav-domains": "Domains",
         "hero-title": '<span class="highlight">Simulation</span> & <span class="highlight">Game</span> Developer',
         "hero-desc": "Passionate about applied mathematics, physics, and low-level development (C/C++).",
         "hero-btn": "View my work",
         "projects-title": "My Projects",
+        "about-title": "About",
+        "about-desc": "Section to complete: background, strengths, and useful links.",
         "domains-title": "Domains",
         "domain-maths-title": "Math",
         "domain-maths-desc": "Modeling, optimization, and geometry to understand complex systems.",
@@ -87,6 +93,8 @@ const translations = {
 // --- LOGIQUE DE TRADUCTION ---
 const langBtn = document.getElementById('lang-switch');
 let currentLang = 'fr';
+const navToggle = document.getElementById('nav-toggle');
+const navLinks = document.getElementById('primary-nav');
 
 langBtn.addEventListener('click', () => {
     currentLang = currentLang === 'fr' ? 'en' : 'fr';
@@ -109,6 +117,22 @@ function updateLanguage() {
         if (translations[currentLang][key]) {
             el.innerHTML = translations[currentLang][key];
         }
+    });
+}
+
+if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('is-open');
+        navToggle.classList.toggle('is-open', isOpen);
+        navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('is-open');
+            navToggle.classList.remove('is-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+        });
     });
 }
 

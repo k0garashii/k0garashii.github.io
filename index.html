@@ -22,9 +22,15 @@
                 <div class="logo-img"><img src="ImageMoi.JPG" alt="Photo de Sasha Menez"></div>
                 <div class="logo">Sasha Menez</div>
             </a>
-            <ul>
+            <button class="nav-toggle" id="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Ouvrir le menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="primary-nav" class="nav-links">
                 <!-- Bouton de langue -->
                 <li><button id="lang-switch" class="filter-btn" style="padding: 5px 10px; margin-top: -5px;" aria-label="Changer la langue">EN</button></li>
+                <li><a href="#domains" data-i18n="nav-domains">Domaines</a></li>
                 <li><a href="#projects" data-i18n="nav-projects">Projets</a></li>
                 <li><a href="#about" data-i18n="nav-about">À propos</a></li>
                 <li><a href="https://github.com/K0garashii" target="_blank" rel="noopener noreferrer">GitHub</a></li>
@@ -235,6 +241,20 @@
             </div> -->
         </div>
     </section>
+
+    <section id="about" class="about">
+        <h2 data-i18n="about-title">A propos</h2>
+        <p data-i18n="about-desc">Section a completer: parcours, points forts, et liens utiles.</p>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="mailto:sashadelinas@gmail.com">Email</a>
+            <a href="https://github.com/K0garashii" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/sasha-menez" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+        <p>© 2026 Sasha Menez</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
