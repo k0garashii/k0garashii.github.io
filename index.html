@@ -30,7 +30,6 @@
             <ul id="primary-nav" class="nav-links">
                 <!-- Bouton de langue -->
                 <li><button id="lang-switch" class="filter-btn" style="padding: 5px 10px; margin-top: -5px;" aria-label="Changer la langue">EN</button></li>
-                <li><a href="#domains" data-i18n="nav-domains">Domaines</a></li>
                 <li><a href="#projects" data-i18n="nav-projects">Projets</a></li>
                 <li><a href="#about" data-i18n="nav-about">À propos</a></li>
                 <li><a href="https://github.com/K0garashii" target="_blank" rel="noopener noreferrer">GitHub</a></li>
@@ -44,30 +43,52 @@
         <a href="#projects" class="btn" data-i18n="hero-btn">Voir mes travaux</a>
     </section>
 
-    <section id="domains" class="domains">
-        <h2 data-i18n="domains-title">Domaines</h2>
-        <div class="domains-grid">
-            <div class="domain-card">
-                <h3 data-i18n="domain-maths-title">Maths</h3>
-                <p data-i18n="domain-maths-desc">Modelisation, optimisation et simulation pour comprendre les systemes complexes.</p>
+    <section class="expertise" aria-labelledby="expertise-title">
+        <section id="about" class="about">
+            <div class="about-grid">
+                <div class="about-media">
+                    <img class="about-photo" src="ImageMoi.JPG" alt="Photo de Sasha Menez">
+                </div>
+                <div class="about-content">
+                    <h2 id="expertise-title" data-i18n="about-title">A propos</h2>
+                    <p data-i18n="about-desc">Je conçois des simulations et des projets techniques en reliant maths, physique et code.</p>
+                    <ul class="about-highlights">
+                        <li data-i18n="about-point-1">Simulation numerique et modelisation physique.</li>
+                        <li data-i18n="about-point-2">Programmation C/C++/C# et outils temps reel.</li>
+                        <li data-i18n="about-point-3">Prototypage IA pour comportements et systemes.</li>
+                    </ul>
+                    <div class="about-actions">
+                        <a class="btn btn-secondary" href="#" data-i18n="about-cv">Voir mon CV</a>
+                    </div>
+                </div>
             </div>
-            <div class="domain-card">
-                <h3 data-i18n="domain-physics-title">Physique</h3>
-                <p data-i18n="domain-physics-desc">Simulation de phénomènes, mécanique et champs, avec validation numérique.</p>
+        </section>
+
+        <section id="domains" class="domains">
+            <h3 class="domains-title" data-i18n="domains-title">Domaines</h3>
+            <div class="domains-grid">
+                <div class="domain-card">
+                    <h4 data-i18n="domain-maths-title">Maths</h4>
+                    <p data-i18n="domain-maths-desc">Modelisation, optimisation et simulation pour comprendre les systemes complexes.</p>
+                </div>
+                <div class="domain-card">
+                    <h4 data-i18n="domain-physics-title">Physique</h4>
+                    <p data-i18n="domain-physics-desc">Simulation de phénomènes, mécanique et champs, avec validation numérique.</p>
+                </div>
+                <div class="domain-card">
+                    <h4 data-i18n="domain-prog-title">Programmation</h4>
+                    <p data-i18n="domain-prog-desc">C/C++/C#, shaders, outils, moteurs, Raylib, python.</p>
+                </div>
+                <div class="domain-card">
+                    <h4 data-i18n="domain-prog-title">Moteur</h4>
+                    <p data-i18n="domain-prog-desc">Unreal 5.6 / Unity pour la conception de jeux et de simulations.</p>
+                </div>
+                <div class="domain-card">
+                    <h4 data-i18n="domain-ai-title">IA</h4>
+                    <p data-i18n="domain-ai-desc">Apprentissage supervise, systemes adaptatifs et prototypes d agents.</p>
+                </div>
             </div>
-            <div class="domain-card">
-                <h3 data-i18n="domain-prog-title">Programmation</h3>
-                <p data-i18n="domain-prog-desc">C/C++/C#, shaders, outils, moteurs, Raylib, python.</p>
-            </div>
-            <div class="domain-card">
-                <h3 data-i18n="domain-prog-title">Moteur</h3>
-                <p data-i18n="domain-prog-desc">Unreal 5.6 / Unity pour la conception de jeux et de simulations.</p>
-            </div>
-            <div class="domain-card">
-                <h3 data-i18n="domain-ai-title">IA</h3>
-                <p data-i18n="domain-ai-desc">Apprentissage supervise, systemes adaptatifs et prototypes d agents.</p>
-            </div>
-        </div>
+        </section>
     </section>
 
     <section id="projects" class="projects">
@@ -240,11 +261,6 @@
                 </a>
             </div> -->
         </div>
-    </section>
-
-    <section id="about" class="about">
-        <h2 data-i18n="about-title">A propos</h2>
-        <p data-i18n="about-desc">Section a completer: parcours, points forts, et liens utiles.</p>
     </section>
 
     <footer class="site-footer">

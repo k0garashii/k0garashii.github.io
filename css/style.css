@@ -176,6 +176,12 @@ nav a:hover .logo {
     transition: 0.3s;
 }
 
+.btn-secondary {
+    background: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+}
+
 @keyframes fade-up {
     from {
         opacity: 0;
@@ -193,14 +199,23 @@ nav a:hover .logo {
     animation: fade-up 0.6s ease both;
 }
 
-/* Domains */
-.domains {
+/* Expertise Block */
+.expertise {
     padding: 4.5rem 10%;
-    background: radial-gradient(1200px 400px at 20% 0%, rgba(56, 189, 248, 0.08), transparent 70%);
+    background: radial-gradient(1200px 500px at 20% 0%, rgba(56, 189, 248, 0.1), transparent 70%);
+    border-top: 1px solid rgba(56, 189, 248, 0.12);
+    border-bottom: 1px solid rgba(56, 189, 248, 0.12);
 }
 
-.domains h2 {
-    margin-bottom: 2rem;
+/* Domains */
+.domains {
+    margin-top: 2.5rem;
+}
+
+.domains-title {
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    font-size: 1.4rem;
 }
 
 .domains-grid {
@@ -238,12 +253,42 @@ nav a:hover .logo {
 
 /* About */
 .about {
-    padding: 4.5rem 10%;
+    padding: 0;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.about-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(56, 189, 248, 0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
 .about p {
     color: var(--secondary-color);
     max-width: 720px;
+}
+
+.about-highlights {
+    margin: 1.2rem 0 1.5rem;
+    padding-left: 1.2rem;
+    color: var(--secondary-color);
+}
+
+.about-highlights li {
+    margin-bottom: 0.4rem;
+}
+
+.about-actions .btn {
+    margin-top: 0;
 }
 
 .site-footer {
@@ -401,6 +446,21 @@ nav a:hover .logo {
 
     .footer-links {
         flex-direction: column;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+    }
+
+    .about-highlights {
+        padding-left: 0;
+        list-style: none;
+    }
+
+    .expertise {
+        padding: 3.5rem 8%;
     }
 }
 

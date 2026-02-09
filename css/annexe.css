@@ -4,6 +4,7 @@
     --text-color: #f8fafc;
     --accent-color: #38bdf8;
     --secondary-color: #94a3b8;
+    --header-height: 72px;
 }
 
 * {
@@ -18,6 +19,10 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     scroll-behavior: smooth;
+}
+
+.project-detail-page {
+    padding-top: var(--header-height);
 }
 
 a,
@@ -36,6 +41,14 @@ button,
 }
 .detail-header { margin-bottom: 0px; }
 .detail-header h1 { font-size: 2.5rem; margin-bottom: 15px; }
+.detail-header .back-btn {
+    margin-bottom: 18px;
+}
+
+.detail-lead {
+    color: var(--secondary-color);
+    margin-bottom: 18px;
+}
 
 .detail-video {
     margin: 20px 0 40px;
@@ -334,6 +347,58 @@ pre {
     transform: translateY(3px);
 }
 
+.detail-list {
+    padding-left: 18px;
+    margin: 12px 0 0;
+    color: var(--secondary-color);
+}
+
+.detail-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 18px;
+}
+
+.gallery-item {
+    background: var(--card-bg);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.gallery-item figcaption {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.detail-pagination {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 40px 0 10px;
+    flex-wrap: wrap;
+}
+
+.detail-pagination .back-btn:last-child {
+    margin-left: auto;
+}
+
 /* Classes de highlight pour le texte */
 .highlight {
     background-color: rgba(56, 189, 248, 0.3);
@@ -408,6 +473,13 @@ pre {
     }
     .download-btn {
         width: 100%;
+        justify-content: center;
+    }
+    .detail-pagination {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .detail-pagination .back-btn {
         justify-content: center;
     }
 }
