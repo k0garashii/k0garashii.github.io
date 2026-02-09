@@ -20,6 +20,15 @@ body {
     scroll-behavior: smooth;
 }
 
+a,
+button,
+.back-btn,
+.download-btn {
+    -webkit-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
 .detail-container {
     max-width: 900px;
     margin: 40px auto;

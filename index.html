@@ -3,22 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de Sasha Menez: projets en maths, physique, programmation, IA et simulations.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Sasha Menez | Portfolio">
+    <meta property="og:description" content="Projets en maths, physique, programmation, IA et simulations.">
+    <meta property="og:image" content="ImageMoi.JPG">
+    <meta property="og:url" content="https://k0garashii.github.io/">
+    <meta property="og:site_name" content="Sasha Menez">
+    <meta property="og:locale" content="fr_FR">
     <title>Sasha Menez | Portfolio</title>
+    <link rel="icon" href="ImageMoi.JPG" type="image/jpeg">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
         <nav>
             <a href="#Top-Page">
-                <div class="logo-img"><img src="ImageMoi.JPG"></div>
+                <div class="logo-img"><img src="ImageMoi.JPG" alt="Photo de Sasha Menez"></div>
                 <div class="logo">Sasha Menez</div>
             </a>
             <ul>
                 <!-- Bouton de langue -->
-                <li><button id="lang-switch" class="filter-btn" style="padding: 5px 10px; margin-top: -5px;">EN</button></li>
+                <li><button id="lang-switch" class="filter-btn" style="padding: 5px 10px; margin-top: -5px;" aria-label="Changer la langue">EN</button></li>
                 <li><a href="#projects" data-i18n="nav-projects">Projets</a></li>
                 <li><a href="#about" data-i18n="nav-about">À propos</a></li>
-                <li><a href="https://github.com/K0garashii" target="_blank">GitHub</a></li>
+                <li><a href="https://github.com/K0garashii" target="_blank" rel="noopener noreferrer">GitHub</a></li>
             </ul>
         </nav>
     </header>
@@ -27,6 +36,32 @@
         <h1 data-i18n-html="hero-title">Développeur de <span class="highlight">Simulations</span> & <span class="highlight">Jeux Vidéo</span></h1>
         <p data-i18n="hero-desc">Passionné par les mathématiques appliquées, la physique et le développement bas niveau (C/C++).</p>
         <a href="#projects" class="btn" data-i18n="hero-btn">Voir mes travaux</a>
+    </section>
+
+    <section id="domains" class="domains">
+        <h2 data-i18n="domains-title">Domaines</h2>
+        <div class="domains-grid">
+            <div class="domain-card">
+                <h3 data-i18n="domain-maths-title">Maths</h3>
+                <p data-i18n="domain-maths-desc">Modelisation, optimisation et simulation pour comprendre les systemes complexes.</p>
+            </div>
+            <div class="domain-card">
+                <h3 data-i18n="domain-physics-title">Physique</h3>
+                <p data-i18n="domain-physics-desc">Simulation de phénomènes, mécanique et champs, avec validation numérique.</p>
+            </div>
+            <div class="domain-card">
+                <h3 data-i18n="domain-prog-title">Programmation</h3>
+                <p data-i18n="domain-prog-desc">C/C++/C#, shaders, outils, moteurs, Raylib, python.</p>
+            </div>
+            <div class="domain-card">
+                <h3 data-i18n="domain-prog-title">Moteur</h3>
+                <p data-i18n="domain-prog-desc">Unreal 5.6 / Unity pour la conception de jeux et de simulations.</p>
+            </div>
+            <div class="domain-card">
+                <h3 data-i18n="domain-ai-title">IA</h3>
+                <p data-i18n="domain-ai-desc">Apprentissage supervise, systemes adaptatifs et prototypes d agents.</p>
+            </div>
+        </div>
     </section>
 
     <section id="projects" class="projects">
@@ -43,7 +78,7 @@
             <!-- Projet 1 -->
             <!-- <div class="project-card" data-category="game">
                 <a href="html/Chromestesia/chromestesia.html" class="project-card-link">
-                    <img src="html/Chromestesia/Chromestesia_Logo.png">
+                    <img src="html/Chromestesia/Chromestesia_Logo.png" alt="Logo Chromestesia">
                     <div class="project-content">
                         <span class="badge">Unity</span>
                         <span class="badge" data-i18n="duration-3m">3 mois</span>
@@ -57,7 +92,7 @@
             <!-- Projet 2 -->
             <!-- <div class="project-card" data-category="game">
                 <a href="html/TowerDefense/tower_defense.html" class="project-card-link">
-                    <img src="html/TowerDefense/TD_Logo.png">
+                    <img src="html/TowerDefense/TD_Logo.png" alt="Logo Tower Defense">
                     <div class="project-content">
                         <span class="badge">C++</span>
                         <span class="badge">Raylib</span>
@@ -72,7 +107,7 @@
             <!-- Projet 3 (Canon) -->
             <div class="project-card" data-category="science">
                 <a href="html/Canon/canon.html" class="project-card-link">
-                    <img src="html/Canon/Canon_Logo.png">
+                    <img src="html/Canon/Canon_Logo.png" alt="Logo Canon">
                     <div class="project-content">
                         <span class="badge" data-i18n="maths">Mathématiques</span>
                         <span class="badge">Unity</span>
@@ -86,7 +121,7 @@
             <!-- Projet 4 -->
             <div class="project-card" data-category="science">
                 <a href="html/Rubik'sCube/quater_cube.html" class="project-card-link">
-                    <img src="html/Rubik'sCube/QuaterCubeLogo.png">
+                    <img src="html/Rubik'sCube/QuaterCubeLogo.png" alt="Logo Quater Cube">
                     <div class="project-content">
                         <span class="badge" data-i18n="maths">Mathématiques</span>
                         <span class="badge">Unity</span>
@@ -101,7 +136,7 @@
             <!-- Projet 5 -->
             <!-- <div class="project-card" data-category="science">
                 <a href="html/Collision3D/collision3D.html" class="project-card-link">
-                    <img src="html/Collision3D/Collision_Logo.png">
+                    <img src="html/Collision3D/Collision_Logo.png" alt="Logo Collision 3D">
                     <div class="project-content">
                         <span class="badge">Mathématiques</span>
                         <span class="badge">Unity</span>
@@ -115,7 +150,7 @@
             <!-- Projet 6 -->
             <!-- <div class="project-card" data-category="science">
                 <a href="html/ProceduralGeneration/procedural_generation.html" class="project-card-link">
-                    <img src="html/ProceduralGeneration/PG_Logo.png">
+                    <img src="html/ProceduralGeneration/PG_Logo.png" alt="Logo Procedural Generation">
                     <div class="project-content">
                         <span class="badge">Mathématiques</span>
                         <span class="badge">Unity</span>
@@ -129,7 +164,7 @@
             <!-- Projet 7 -->
             <!-- <div class="project-card" data-category="science">
                 <a href="html/SolarSystem/solar_system.html" class="project-card-link">
-                    <img src="html/SolarSystem/image1.png">
+                    <img src="html/SolarSystem/image1.png" alt="Logo Solar System">
                     <div class="project-content">
                         <span class="badge">Mathématiques</span>
                         <span class="badge">Unity</span>
@@ -144,7 +179,7 @@
             <!-- Projet 8 -->
             <div class="project-card" data-category="science">
                 <a href="html/Tornado/tornado.html" class="project-card-link">                    
-                    <img src="html/Tornado/TornadoLogo.png">
+                    <img src="html/Tornado/TornadoLogo.png" alt="Logo Tornado">
                     <div class="project-content">
                         <span class="badge" data-i18n="maths">Mathématiques</span>
                         <span class="badge">UE5</span>
