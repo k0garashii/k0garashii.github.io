@@ -243,7 +243,7 @@ mjx-container {
     display: block;
     max-width: 100%;
     overflow-x: auto;
-    text-align: center;
+    text-align: left center;
     margin: 0 auto;
 }
 
@@ -554,10 +554,12 @@ mjx-container {
     .detail-pagination .back-btn {
         min-height: 44px;
     }
+
     .equation mjx-container[jax="CHTML"][display="true"] {
         margin-left: 0;
-        text-align: center;
+        text-align: left !important;
     }
+    
     .text-left-img-right {
         display: grid;
         grid-template-columns: 1fr;
