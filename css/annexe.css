@@ -519,6 +519,11 @@ pre code {
     .detail-pagination .back-btn {
         justify-content: center;
     }
+    .back-btn,
+    .download-btn,
+    .detail-pagination .back-btn {
+        min-height: 44px;
+    }
     .equation mjx-container[jax="CHTML"][display="true"] {
         margin-left: 0;
         text-align: center;
@@ -556,5 +561,39 @@ pre code {
     .text-right-img-left .content,
     .text-right-img-left .media {
         order: initial;
+    }
+}
+
+@media (hover: none) {
+    .back-btn:hover {
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--text-color);
+        border-color: rgba(255, 255, 255, 0.1);
+        transform: none;
+    }
+
+    .back-btn:hover .arrow {
+        transform: none;
+    }
+
+    .badge:hover {
+        background: rgba(56, 189, 248, 0.1);
+        border-color: rgba(56, 189, 248, 0.3);
+    }
+
+    .download-card:hover {
+        border-color: rgba(56, 189, 248, 0.3);
+        background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(56, 189, 248, 0.05));
+        transform: none;
+    }
+
+    .download-btn:hover {
+        background: var(--accent-color);
+        transform: none;
+        box-shadow: none;
+    }
+
+    .download-btn:hover .download-arrow {
+        transform: none;
     }
 }

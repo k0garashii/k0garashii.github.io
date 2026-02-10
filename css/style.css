@@ -510,6 +510,23 @@ nav a:hover .logo {
         display: block;
     }
 
+    .nav-links a,
+    .filters-dropdown,
+    .filter-btn,
+    .btn,
+    .footer-links a {
+        min-height: 44px;
+    }
+
+    .nav-links a,
+    .footer-links a {
+        padding: 10px 12px;
+    }
+
+    .filters-dropdown {
+        padding: 0.6rem 0.9rem;
+    }
+
     .about-grid {
         grid-template-columns: 1fr;
         justify-items: center;
@@ -592,4 +609,34 @@ footer {
     text-align: center;
     padding: 3rem;
     color: var(--secondary-color);
+}
+
+@media (hover: none) {
+    nav a:hover {
+        color: var(--text-color);
+    }
+
+    nav a:hover .logo-img {
+        transform: none;
+        border-color: var(--accent-color);
+    }
+
+    nav a:hover .logo {
+        color: var(--text-color);
+    }
+
+    .domain-card:hover {
+        transform: none;
+        border-color: rgba(56, 189, 248, 0.2);
+        box-shadow: none;
+    }
+
+    .project-card:hover {
+        transform: none;
+    }
+
+    .badge:hover {
+        background: rgba(56, 189, 248, 0.1);
+        border-color: rgba(56, 189, 248, 0.3);
+    }
 }
