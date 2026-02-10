@@ -25,9 +25,12 @@ body {
     scroll-behavior: smooth;
 }
 
-html,
-body {
+html {
     overflow-x: hidden;
+}
+
+body {
+    overflow-x: visible;
 }
 
 img,
@@ -202,9 +205,8 @@ button,
 }
 
 .rendered-img {
-    height: 300px;
-    max-width: 100%;
     width: 100%;
+    aspect-ratio: 16 / 9;
     object-fit: contain;
 }
 
@@ -231,10 +233,18 @@ pre code {
     -webkit-overflow-scrolling: touch;
 }
 
+mjx-container {
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden;
+}
+
 .equation mjx-container {
+    display: block;
     max-width: 100%;
     overflow-x: auto;
-    overflow-y: hidden;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .text-left-img-right {
@@ -287,7 +297,7 @@ pre code {
 }
 
 .text-top-img-bottom .media .rendered-img {
-    height: 500px;
+    aspect-ratio: 4 / 3;
 }
 
 .img-top-text-bottom {
@@ -319,12 +329,6 @@ pre code {
     font-size: 1.1rem;
     margin-top: 15px;
     margin-bottom: 10px;
-}
-
-.equation mjx-container[jax="CHTML"][display="true"] {
-    text-align: left !important;
-    margin-left: 60px;
-    display: block;
 }
 
 .media {
@@ -563,6 +567,17 @@ pre code {
         background: var(--card-bg);
         border-radius: 12px;
         border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+
+    .rendered-img {
+        height: auto;
+        max-height: 60vh;
+        object-fit: contain;
+    }
+
+    .text-top-img-bottom .media .rendered-img {
+        height: auto;
+        max-height: 70vh;
     }
 }
 
