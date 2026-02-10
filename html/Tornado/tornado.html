@@ -7,18 +7,19 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-<body class="project-detail-page">
+<body class="project-detail-page" data-page="tornado" data-title-key="pageTitle">
 
     <nav class="detail-nav">
         <a href="/index.html" class="back-btn">
             <span class="arrow">←</span>
-            <span class="text">Retour au portfolio</span>
+            <span class="text" data-i18n="back">Retour au portfolio</span>
         </a>
+        <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Changer la langue">EN</button>
     </nav>
 
     <main class="detail-container">
         <header class="detail-header">
-            <h1>Simulation d'une tornade dans un environnement 3D</h1>
+            <h1 data-i18n="title">Simulation d'une tornade dans un environnement 3D</h1>
             <div class="badge-container">
                 <span class="badge" data-i18n="maths">Mathématiques</span>
                 <span class="badge">UE5</span>
@@ -29,13 +30,13 @@
 
         <section class="detail-content text-full">
             <div class="detail-text">
-                <h2>Desciption et Objectifs du projet</h2>
+                <h2 data-i18n="descriptionTitle">Desciption et Objectifs du projet</h2>
                 <br>    
-                <p>L'objectif était de faire une simulation d'une tornade dans un environnement 3D, incluant la modélisation des forces et des mouvements associés. Le projet vise à simuler le comportement dynamique d'une tornade en utilisant les équations de Burgers-Rott, dans un environnement réaliste. Le projet a été développé à l’aide du moteur de jeu Unreal Engine 5.6.</p>
+                <p data-i18n="descriptionText">L'objectif était de faire une simulation d'une tornade dans un environnement 3D, incluant la modélisation des forces et des mouvements associés. Le projet vise à simuler le comportement dynamique d'une tornade en utilisant les équations de Burgers-Rott, dans un environnement réaliste. Le projet a été développé à l’aide du moteur de jeu Unreal Engine 5.6.</p>
                 <br>
-                <h2>Défis Mathématiques</h2>
+                <h2 data-i18n="mathChallengesTitle">Défis Mathématiques</h2>
                 <br>
-                <p>- Appliquer les équations de Burgers-Rott sur Unreal Engine<br>
+                <p data-i18n-html="tornadoChallenges">- Appliquer les équations de Burgers-Rott sur Unreal Engine<br>
                    - Représenter le "bruit" de la tornade à l'aide d'une force de turbulence<br>
                    - Calculer le facteur d'évasement de la tornade pour une représentation plus réaliste<br>
                    - Transiter d'un état d'aspiration à un état d'expulsion</p>
@@ -44,7 +45,7 @@
 
         <section class="detail-content text-full">
             <div class="detail-text">
-                <h2>Représentation visuelle</h2>
+                <h2 data-i18n="visualTitle">Représentation visuelle</h2>
             </div>
         </section>
         <section class="detail-video">
@@ -60,12 +61,12 @@
 
         <section class="text-top-img-bottom">
             <div class="content">
-                <h2>Comment fonctionne la tornade ?</h2>
-                <p>
+                <h2 data-i18n="tornadoHowTitle">Comment fonctionne la tornade ?</h2>
+                <p data-i18n-html="tornadoHowText">
                     Concrètement, une tornade possède plusieurs caractéristiques physiques distinctes, telles que la rotation rapide de l'air, une pression atmosphérique basse au centre, et des forces de turbulence qui influencent son comportement dynamique.
                     Dans ce projet, je me suis concentré sur 4 facteurs physiques majeurs.<br><br>
                 </p>
-                <h3>Le bruit</h3>
+                <h3 data-i18n="noiseTitle">Le bruit</h3>
                 <pre><code>
 <span class="type">float</span> <span class="variable">time</span> = <span class="variable">DeltaTime</span> * 0.5f;
 <span class="type">FVector</span> <span class="variable">Noise</span> = <span class="className">FVector</span>(
@@ -75,7 +76,7 @@
 );
 <span class="variable">Noise</span> *= <span class="variable">TurbulenceStrength</span>;
                 </code></pre>
-                <h3>Le gamma (force de rotation)</h3>
+                <h3 data-i18n="gammaTitle">Le gamma (force de rotation)</h3>
                 <pre><code>
 <span class="comment">//Paramètres initiaux</span>
 <span class="type">FVector</span> <span class="variable">transformPos</span> = <span class="variable">spellPos</span>;
@@ -100,8 +101,8 @@
 <span class="className">FMath</span>::<span class="function">Pow</span>(<span class="variable">height01</span>, <span class="variable">GammaExponent</span>)
 );
                 </code></pre>
-                <h3>L'écoulement (ou "champ de vitesse")</h3>
-                <p>
+                <h3 data-i18n="flowTitle">L'écoulement (ou "champ de vitesse")</h3>
+                <p data-i18n-html="flowText">
                     Il est modélisé à l'aide des 3 éléments majeurs qui forment une tornade : la vitesse radiale \( V_r \), la vitesse tangente \( V_t \) et la vitesse verticale \( V_z \).<br><br>
                 </p>
                 <pre><code>
@@ -122,7 +123,7 @@
 <span class="type">float</span> <span class="variable">FinalVz</span> = <span class="variable">Vz</span> * (1.0 - <span class="variable">FlareFactor</span>);
                 </code></pre>
                 <br>
-                <p>
+                <p data-i18n-html="flowResult">
                     La vitesse finale du flux d'air à une position donnée est obtenue en combinant ces trois composantes vectorielles.<br><br>
                 </p>
                 <pre><code>
@@ -133,12 +134,13 @@
         </section>
         <section class="detail-content text-full">
             <div class="detail-text">
-                <h2>Ouverture</h2>
-                <p>
+                <h2 data-i18n="openingTitle">Ouverture</h2>
+                <p data-i18n="openingText">
                     Maintenant que la représentation visuelle de la tornade est fonctionnelle / réaliste, il ne reste plus qu'à créer les interactions avec les objets environnants. Et c'est ce qui sera continué dans un futur projet !
                 </p>
             </div>
         </section>
     </main>
+    <script src="../../annexe.js"></script>
 </body>
 </html>

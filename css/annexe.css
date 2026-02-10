@@ -95,12 +95,36 @@ button,
 }
 
 .detail-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
     padding: calc(30px + var(--safe-top)) calc(5% + var(--safe-right)) 30px calc(5% + var(--safe-left));
     position: sticky;
     top: 0;
     background: rgba(15, 23, 42, 0.8);
     backdrop-filter: blur(10px);
     z-index: 100;
+}
+
+.lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--text-color);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.lang-toggle:hover {
+    background: rgba(56, 189, 248, 0.2);
+    border-color: var(--accent-color);
 }
 
 .back-btn {
@@ -569,6 +593,10 @@ pre code {
 }
 
 @media (hover: none) {
+    .lang-toggle:hover {
+        background: rgba(56, 189, 248, 0.1);
+        border-color: rgba(56, 189, 248, 0.4);
+    }
     .back-btn:hover {
         background: rgba(255, 255, 255, 0.05);
         color: var(--text-color);

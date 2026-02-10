@@ -5,31 +5,32 @@
     <title>Détails du Projet | Moteur Vulkan</title>
     <link rel="stylesheet" href="../../css/annexe.css">
 </head>
-<body class="project-detail-page">
+<body class="project-detail-page" data-page="chromestesia" data-title-key="pageTitle">
 
     <nav class="detail-nav">
         <a href="/index.html" class="back-btn">
             <span class="arrow">←</span>
-            <span class="text">Retour au portfolio</span>
+            <span class="text" data-i18n="back">Retour au portfolio</span>
         </a>
+        <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Changer la langue">EN</button>
     </nav>
 
     <main class="detail-container">
         <header class="detail-header">
-            <h1>Action 2.5D Unity</h1>
+            <h1 data-i18n="title">Action 2.5D Unity</h1>
             <div class="badge-container">
                 <span class="badge">C++</span>
                 <span class="badge">Vulkan</span>
-                <span class="badge">Architecture logicielle</span>
+                <span class="badge" data-i18n="architectureBadge">Architecture logicielle</span>
             </div>
         </header>
 
         <section class="detail-content">
             <div class="detail-text">
-                <h2>Objectif du projet</h2>
-                <p>L'objectif était de comprendre les couches bas-niveau des API graphiques modernes en implémentant une pipeline de rendu complète.</p>
+                <h2 data-i18n="objectiveTitle">Objectif du projet</h2>
+                <p data-i18n="objectiveText">L'objectif était de comprendre les couches bas-niveau des API graphiques modernes en implémentant une pipeline de rendu complète.</p>
                 
-                <h2>Défis</h2>
+                <h2 data-i18n="challengesTitle">Défis</h2>
             </div>
 
             <div class="detail-media">
@@ -40,7 +41,7 @@
         </section>
 
         <section class="code-section">
-            <h2>Aperçu du Code (C++)</h2>
+            <h2 data-i18n="codeTitle">Aperçu du Code (C++)</h2>
             <pre><code>
 // Initialisation de l'instance Vulkan
 VkInstanceCreateInfo createInfo{};
@@ -49,5 +50,6 @@ createInfo.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
             </code></pre>
         </section>
     </main>
+    <script src="../../annexe.js"></script>
 </body>
 </html>

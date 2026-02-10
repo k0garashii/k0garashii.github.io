@@ -100,17 +100,23 @@ const translations = {
 
 // --- LOGIQUE DE TRADUCTION ---
 const langBtn = document.getElementById('lang-switch');
-let currentLang = 'fr';
+const langStorageKey = 'siteLang';
+let currentLang = localStorage.getItem(langStorageKey) || 'fr';
 const navToggle = document.getElementById('nav-toggle');
 const navLinks = document.getElementById('primary-nav');
 
-langBtn.addEventListener('click', () => {
-    currentLang = currentLang === 'fr' ? 'en' : 'fr';
-    langBtn.innerText = currentLang === 'en' ? 'EN' : 'FR';
-    updateLanguage();
-});
+if (langBtn) {
+    langBtn.addEventListener('click', () => {
+        currentLang = currentLang === 'fr' ? 'en' : 'fr';
+        localStorage.setItem(langStorageKey, currentLang);
+        updateLanguage();
+    });
+}
 
 function updateLanguage() {
+    if (langBtn) {
+        langBtn.innerText = currentLang === 'fr' ? 'EN' : 'FR';
+    }
     // Traduction des textes simples
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
@@ -189,3 +195,5 @@ if (filterSelect) {
         applyFilter(filterValue);
     });
 }
+
+updateLanguage();

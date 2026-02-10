@@ -7,18 +7,19 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-<body class="project-detail-page">
+<body class="project-detail-page" data-page="rubik" data-title-key="pageTitle">
 
     <nav class="detail-nav">
         <a href="/index.html" class="back-btn">
             <span class="arrow">←</span>
-            <span class="text">Retour au portfolio</span>
+            <span class="text" data-i18n="back">Retour au portfolio</span>
         </a>
+        <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Changer la langue">EN</button>
     </nav>
 
     <main class="detail-container">
         <header class="detail-header">
-            <h1>Rubik's Cube</h1>
+            <h1 data-i18n="title">Rubik's Cube</h1>
             <div class="badge-container">
                 <span class="badge" data-i18n="maths">Mathématiques</span>
                 <span class="badge">Unity</span>
@@ -29,32 +30,32 @@
 
         <section class="detail-content text-full">
             <div class="detail-text">
-                <h2>Objectif du projet</h2>
+                <h2 data-i18n="objectiveTitle">Objectif du projet</h2>
                 <br>
-                <p>QuaterCube est un projet Unity visant à explorer et maîtriser l'utilisation des quaternions pour gérer les rotations 3D. Il s'agit d'une simulation de Rubik's Cube entièrement implémentée en utilisant uniquement des quaternions, recodés en parti.</p>
+                <p data-i18n="objectiveText">QuaterCube est un projet Unity visant à explorer et maîtriser l'utilisation des quaternions pour gérer les rotations 3D. Il s'agit d'une simulation de Rubik's Cube entièrement implémentée en utilisant uniquement des quaternions, recodés en parti.</p>
                 <br>
-                <h2>Défis Mathématiques</h2>
+                <h2 data-i18n="mathChallengesTitle">Défis Mathématiques</h2>
                 <br>
-                <p>
+                <p data-i18n-html="rubikChallenges">
                     - Comprendre et appliquer les rotations par quaternions dans Unity. <br>
                     - Manipuler les transformations 3D sans gimbal lock. <br>
                     - Reproduire les mouvements complexes d'un Rubik's Cube en utilisant la composition de quaternions.
                 </p>
                 <br>
-                <h2>Actions</h2>
+                <h2 data-i18n="actionsTitle">Actions</h2>
                 <br>
                 <p>
-                    <span class="highlight">Générer</span> : Crée un nouveau Rubik's Cube en utilisant la taille sélectionnée, la profondeur de mélange et la sensibilité de la souris.<br>
-                    <span class="highlight">Inverser</span> : Résout le Rubik's Cube en inversant toutes les rotations qui ont été effectuées précédemment.<br>
-                    <span class="highlight">Sauvegarder</span> : Sauvegarde l'état actuel du cube (pour que vous puissiez quitter le jeu et garder votre progression).<br>
-                    <span class="highlight">Récupérer</span> : Recrée le cube en fonction des données sauvegardées, restaurant le dernier état connu.
+                    <span class="highlight" data-i18n="actionGenerate">Générer</span><span data-i18n="actionGenerateDesc"> : Crée un nouveau Rubik's Cube en utilisant la taille sélectionnée, la profondeur de mélange et la sensibilité de la souris.</span><br>
+                    <span class="highlight" data-i18n="actionInvert">Inverser</span><span data-i18n="actionInvertDesc"> : Résout le Rubik's Cube en inversant toutes les rotations qui ont été effectuées précédemment.</span><br>
+                    <span class="highlight" data-i18n="actionSave">Sauvegarder</span><span data-i18n="actionSaveDesc"> : Sauvegarde l'état actuel du cube (pour que vous puissiez quitter le jeu et garder votre progression).</span><br>
+                    <span class="highlight" data-i18n="actionLoad">Récupérer</span><span data-i18n="actionLoadDesc"> : Recrée le cube en fonction des données sauvegardées, restaurant le dernier état connu.</span>
                 </p>
             </div>
         </section>
         
         <section class="detail-content text-full">
             <div class="detail-text">
-                <h2>Représentation visuelle</h2>
+                <h2 data-i18n="visualTitle">Représentation visuelle</h2>
             </div>
         </section>
 
@@ -69,5 +70,6 @@
             </iframe>
         </section>
     </main>
+    <script src="../../annexe.js"></script>
 </body>
 </html>
