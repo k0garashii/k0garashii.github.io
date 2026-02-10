@@ -206,8 +206,10 @@ button,
 
 .rendered-img {
     width: 100%;
-    aspect-ratio: 16 / 9;
+    height: auto;
+    aspect-ratio: auto;
     object-fit: contain;
+    display: block;
 }
 
 pre {
@@ -228,15 +230,18 @@ pre code {
 }
 
 .equation {
-    max-width: 100%;
+    width: 100%;
     overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10px 0;
     -webkit-overflow-scrolling: touch;
 }
 
 mjx-container {
     max-width: 100% !important;
     overflow-x: auto !important;
-    overflow-y: hidden;
+    overflow-y: hidden !important;
+    font-size: 90% !important;
 }
 
 .equation mjx-container {
@@ -332,9 +337,11 @@ mjx-container {
 }
 
 .media {
+    width: 100%;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
 .media .placeholder-media {
@@ -554,12 +561,10 @@ mjx-container {
     .detail-pagination .back-btn {
         min-height: 44px;
     }
-
     .equation mjx-container[jax="CHTML"][display="true"] {
         margin-left: 0;
         text-align: left !important;
     }
-    
     .text-left-img-right {
         display: grid;
         grid-template-columns: 1fr;
@@ -593,12 +598,16 @@ mjx-container {
         font-size: 2rem;
     }
 
-    .text-left-img-right,
-    .text-right-img-left,
-    .text-top-img-bottom,
+    .text-left-img-right, 
+    .text-right-img-left, 
+    .text-top-img-bottom, 
     .img-top-text-bottom {
-        padding: 20px;
-        grid-template-columns: 1fr;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .detail-container {
+        padding: 0 10px;
     }
 
     .text-right-img-left .content,
@@ -673,5 +682,9 @@ mjx-container {
 
     .download-arrow {
         font-size: 1.35rem;
+    }
+
+    mjx-container {
+        font-size: 75% !important; /* Encore plus petit sur très petits écrans */
     }
 }
