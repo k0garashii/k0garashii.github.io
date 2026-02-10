@@ -69,17 +69,17 @@
                 <h3 data-i18n="noiseTitle">Le bruit</h3>
                 <pre><code>
 <span class="type">float</span> <span class="variable">time</span> = <span class="variable">DeltaTime</span> * 0.5f;
-<span class="type">FVector</span> <span class="variable">Noise</span> = <span class="className">FVector</span>(
-<span class="className">FMath</span>::<span class="function">PerlinNoise2D</span>(<span class="className">FVector2D</span>(<span class="variable">elementPos</span>.X + <span class="variable">time</span>, <span class="variable">elementPos</span>.Y)) * 0.5f,
-0.0f,
-<span class="className">FMath</span>::<span class="function">PerlinNoise2D</span>(<span class="className">FVector2D</span>(<span class="variable">elementPos</span>.Z, <span class="variable">elementPos</span>.Y + <span class="variable">time</span>)) * 0.5f
+<span class="className">FVector</span> <span class="variable">Noise</span> = <span class="className">FVector</span>(
+    <span class="className">FMath</span>::<span class="function">PerlinNoise2D</span>(<span class="className">FVector2D</span>(<span class="variable">elementPos</span>.X + <span class="variable">time</span>, <span class="variable">elementPos</span>.Y)) * 0.5f,
+    0.0f,
+    <span class="className">FMath</span>::<span class="function">PerlinNoise2D</span>(<span class="className">FVector2D</span>(<span class="variable">elementPos</span>.Z, <span class="variable">elementPos</span>.Y + <span class="variable">time</span>)) * 0.5f
 );
 <span class="variable">Noise</span> *= <span class="variable">TurbulenceStrength</span>;
                 </code></pre>
                 <h3 data-i18n="gammaTitle">Le gamma (force de rotation)</h3>
                 <pre><code>
 <span class="comment">//Paramètres initiaux</span>
-<span class="type">FVector</span> <span class="variable">transformPos</span> = <span class="variable">spellPos</span>;
+<span class="className">FVector</span> <span class="variable">transformPos</span> = <span class="variable">spellPos</span>;
 <span class="type">float</span> <span class="variable">z</span> = <span class="variable">elementPos</span>.Z - <span class="variable">transformPos</span>.Z;
 
 <span class="variable">elementPos</span>.Z = 0;
@@ -96,9 +96,9 @@
 
 <span class="comment">// Calcul du gamma en fonction de la hauteur</span>
 <span class="type">float</span> <span class="variable">gammaAtHeight</span> = <span class="className">FMath</span>::<span class="function">Lerp</span>(
-<span class="variable">GammaBase</span>, 
-<span class="variable">GammaTop</span>, 
-<span class="className">FMath</span>::<span class="function">Pow</span>(<span class="variable">height01</span>, <span class="variable">GammaExponent</span>)
+    <span class="variable">GammaBase</span>, 
+    <span class="variable">GammaTop</span>, 
+    <span class="className">FMath</span>::<span class="function">Pow</span>(<span class="variable">height01</span>, <span class="variable">GammaExponent</span>)
 );
                 </code></pre>
                 <h3 data-i18n="flowTitle">L'écoulement (ou "champ de vitesse")</h3>

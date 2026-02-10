@@ -590,6 +590,14 @@ pre code {
     .text-right-img-left .media {
         order: initial;
     }
+
+    .back-btn,
+    .lang-toggle {
+        min-width: 60px;
+        min-height: 60px;
+        padding: 16px 22px;
+        font-size: 1.1rem;
+    }
 }
 
 @media (hover: none) {
@@ -627,5 +635,28 @@ pre code {
 
     .download-btn:hover .download-arrow {
         transform: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .back-btn,
+    .download-btn,
+    .lang-toggle,
+    .detail-pagination .back-btn {
+        padding: 14px 20px;
+        font-size: 1.05rem;
+        border-radius: 12px;
+    }
+
+    .back-btn .arrow {
+        margin-right: 12px;
+    }
+
+    .download-btn {
+        gap: 12px;
+    }
+
+    .download-arrow {
+        font-size: 1.35rem;
     }
 }
