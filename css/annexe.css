@@ -217,13 +217,13 @@ pre {
     color: #adbac7;
     font-family: 'Courier New', monospace;
     max-width: 100%;
+    width: 100%;
     white-space: pre;
     -webkit-overflow-scrolling: touch;
 }
 
 pre code {
-    display: block;
-    width: max-content;
+    display: inline-block;
     min-width: 100%;
 }
 
