@@ -93,7 +93,19 @@
     </section>
 
     <section id="projects" class="projects">
-        <h2 data-i18n="projects-title">Mes Projets</h2>
+        <div class="projects-header">
+            <h2 data-i18n="projects-title">Mes Projets</h2>
+            <div class="filters-select">
+                <label class="visually-hidden" for="project-filter-select" data-i18n="filter-label">Filtrer</label>
+                <select id="project-filter-select" class="filters-dropdown" aria-label="Filtrer les projets">
+                    <option value="all" data-i18n="filter-all">Tous</option>
+                    <option value="game" data-i18n="filter-game">Jeux Vidéo</option>
+                    <option value="science" data-i18n="filter-science">Maths & Physique</option>
+                    <option value="AI" data-i18n="filter-ai">IA</option>
+                    <option value="Upcoming" data-i18n="filter-upcoming">À venir</option>
+                </select>
+            </div>
+        </div>
         <div class="filters">
             <button class="filter-btn active" data-filter="all" data-i18n="filter-all">Tous</button>
             <button class="filter-btn" data-filter="game" data-i18n="filter-game">Jeux Vidéo</button>

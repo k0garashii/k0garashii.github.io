@@ -27,6 +27,7 @@ const translations = {
         "filter-science": "Maths & Physique",
         "filter-ai": "IA",
         "filter-upcoming": "À venir",
+        "filter-label": "Filtrer",
         "maths": "Mathématiques",
         "duration-1w": "1 semaine",
         "duration-2w": "2 semaines",
@@ -74,6 +75,7 @@ const translations = {
         "filter-science": "Math & Physics",
         "filter-ai": "AI",
         "filter-upcoming": "Upcoming",
+        "filter-label": "Filter",
         "maths": "Mathematics",
         "duration-1w": "1 week",
         "duration-2w": "2 weeks",
@@ -104,7 +106,7 @@ const navLinks = document.getElementById('primary-nav');
 
 langBtn.addEventListener('click', () => {
     currentLang = currentLang === 'fr' ? 'en' : 'fr';
-    langBtn.innerText = currentLang === 'fr' ? 'EN' : 'FR';
+    langBtn.innerText = currentLang === 'en' ? 'EN' : 'FR';
     updateLanguage();
 });
 
@@ -143,26 +145,47 @@ if (navToggle && navLinks) {
 }
 
 // --- LOGIQUE DE FILTRAGE (CORRIGÉE) ---
-const filterButtons = document.querySelectorAll('.filter-btn');
+const filterButtons = document.querySelectorAll('.filter-btn[data-filter]');
 const projectCards = document.querySelectorAll('.project-card');
+const filterSelect = document.getElementById('project-filter-select');
+
+const applyFilter = (filterValue) => {
+    projectCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        if (filterValue === 'all' || category === filterValue) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+};
+
+const setActiveButton = (filterValue) => {
+    filterButtons.forEach(btn => {
+        const isActive = btn.getAttribute('data-filter') === filterValue;
+        btn.classList.toggle('active', isActive);
+    });
+};
 
 filterButtons.forEach(btn => {
     btn.addEventListener('click', () => {
-        // On ne gère pas le bouton de langue comme un filtre
-        if(btn.id === 'lang-switch') return;
-
-        filterButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
         const filterValue = btn.getAttribute('data-filter');
+        setActiveButton(filterValue);
+        applyFilter(filterValue);
 
-        projectCards.forEach(card => {
-            const category = card.getAttribute('data-category');
-            if (filterValue === 'all' || category === filterValue) {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none';
-            }
-        });
+        if (filterSelect) {
+            filterSelect.value = filterValue;
+        }
     });
 });
+
+if (filterSelect) {
+    const activeButton = document.querySelector('.filter-btn.active[data-filter]');
+    filterSelect.value = activeButton ? activeButton.getAttribute('data-filter') : 'all';
+
+    filterSelect.addEventListener('change', (event) => {
+        const filterValue = event.target.value;
+        setActiveButton(filterValue);
+        applyFilter(filterValue);
+    });
+}
