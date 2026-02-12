@@ -54,6 +54,14 @@ button,
     user-select: text;
 }
 
+button:hover,
+.back-btn:hover,
+.download-btn:hover,
+.lang-toggle:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
 .detail-container {
     max-width: 900px;
     margin: 40px auto;
@@ -125,8 +133,10 @@ button,
 }
 
 .lang-toggle:hover {
-    background: rgba(56, 189, 248, 0.2);
+    background: var(--accent-color);
+    color: var(--bg-color);
     border-color: var(--accent-color);
+    box-shadow: none;
 }
 
 .back-btn {
