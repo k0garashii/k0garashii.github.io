@@ -79,7 +79,7 @@
                 </code></pre>
                 <h3 data-i18n="gammaTitle">Le gamma (force de rotation)</h3>
                 <pre><code>
-<span class="comment">//Paramètres initiaux</span>
+<span class="comment">//Initial parameters</span>
 <span class="className">FVector</span> <span class="variable">transformPos</span> = <span class="variable">spellPos</span>;
 <span class="type">float</span> <span class="variable">z</span> = <span class="variable">elementPos</span>.Z - <span class="variable">transformPos</span>.Z;
 
@@ -95,7 +95,7 @@
 <span class="type">float</span> <span class="variable">height</span> = <span class="className">FMath</span>::<span class="function">Max</span>(0.f, <span class="variable">z</span>);
 <span class="type">float</span> <span class="variable">height01</span> = <span class="className">FMath</span>::<span class="function">Clamp</span>(<span class="variable">height</span> / <span class="variable">TornadoHeight</span>, 0.f, 1.f);
 
-<span class="comment">// Calcul du gamma en fonction de la hauteur</span>
+<span class="comment">// Gamma calculation based on height</span>
 <span class="type">float</span> <span class="variable">gammaAtHeight</span> = <span class="className">FMath</span>::<span class="function">Lerp</span>(
     <span class="variable">GammaBase</span>, 
     <span class="variable">GammaTop</span>, 
@@ -107,18 +107,18 @@
                     Il est modélisé à l'aide des 3 éléments majeurs qui forment une tornade : la vitesse radiale \( V_r \), la vitesse tangente \( V_t \) et la vitesse verticale \( V_z \).<br><br>
                 </p>
                 <pre><code>
-<span class="comment">//On passe de l'aspiration (-Vr) à l'expulsion (+Vr)</span>
+<span class="comment">// Switch from suction (-Vr) to outflow (+Vr)</span>
 <span class="type">float</span> <span class="variable">Suction</span> = -<span class="variable">A</span> * <span class="variable">dist</span>;
 <span class="type">float</span> <span class="variable">PushOut</span> = <span class="variable">A</span> * <span class="variable">dist</span> * <span class="variable">FlareStrength</span>;
 
 <span class="type">float</span> <span class="variable">Vtheta</span> = <span class="variable">gammaAtHeight</span> / (2 * <span class="type">PI</span> * <span class="variable">dist</span>) * (1 - <span class="className">FMath</span>::<span class="function">Exp</span>(<span class="variable">A</span> * <span class="variable">dist</span> * <span class="variable">dist</span> / (2 * Nu)));
 <span class="type">float</span> <span class="variable">Vz</span> = 2 * <span class="variable">A</span> * <span class="variable">z</span>;
-<span class="comment">// Calcul du facteur d'évasement (0 en bas, 1 tout en haut avec une transition douce)</span>
+<span class="comment">// Flare factor (0 at bottom, 1 at top with a smooth transition)</span>
 <span class="type">float</span> <span class="variable">t</span> = <span class="className">FMath</span>::<span class="function">Clamp</span>((<span class="variable">height01</span> - <span class="variable">OutflowHeightStart</span>) / (1.0 - <span class="variable">OutflowHeightStart</span>), 0.0, 1.0);
-<span class="comment">//Formule du smoothStep</span>
+<span class="comment">// SmoothStep formula</span>
 <span class="type">float</span> <span class="variable">FlareFactor</span> = <span class="variable">t</span> * <span class="variable">t</span> * (3.0 - 2.0 * <span class="variable">t</span>);
 
-<span class="comment">//On combine les vitesses pour obtenir la vitesse finale de chaque composante</span>
+<span class="comment">// Combine velocities to get the final speed for each component</span>
 <span class="type">float</span> <span class="variable">FinalVr</span> = <span class="className">FMath</span>::<span class="function">Lerp</span>(<span class="variable">Suction</span>, <span class="variable">PushOut</span>, <span class="variable">FlareFactor</span>);
 <span class="type">float</span> <span class="variable">FinalVtheta</span> = <span class="variable">Vtheta</span> * (1.0 - (<span class="variable">FlareFactor</span> * 0.5));
 <span class="type">float</span> <span class="variable">FinalVz</span> = <span class="variable">Vz</span> * (1.0 - <span class="variable">FlareFactor</span>);
