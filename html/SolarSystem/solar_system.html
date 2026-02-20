@@ -2,13 +2,13 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Détails du Projet | Moteur Vulkan</title>
+    <title>Solar System Project</title>
     <link rel="stylesheet" href="../../css/annexe.css">
     <!-- Pour afficher de belles équations maths si besoin -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-<body class="project-detail-page" data-page="engine" data-title-key="pageTitle">
+<body class="project-detail-page" data-page="solar-system" data-title-key="pageTitle">
 
     <nav class="detail-nav">
         <a href="/index.html" class="back-btn">
@@ -20,40 +20,39 @@
 
     <main class="detail-container">
         <header class="detail-header">
-            <h1 data-i18n="title">Création d'un moteur de jeu (Vulkan)</h1>
+            <h1 data-i18n="title">Solar System Simulation</h1>
             <div class="badge-container">
-                <span class="badge">C++</span>
-                <span class="badge">Vulkan</span>
-                <span class="badge" data-i18n="architectureBadge">Architecture logicielle</span>
+                <span class="badge" data-i18n="physicsBadge">Physique</span>
+                <span class="badge" data-i18n="mathBadge">Mathématiques</span>
+                <span class="badge" data-i18n="simulationBadge">Simulation</span>
             </div>
         </header>
 
         <section class="detail-content">
             <div class="detail-text">
-                <h2 data-i18n="objectiveTitle">Objectif du projet</h2>
-                <p data-i18n="objectiveText">L'objectif était de comprendre les couches bas-niveau des API graphiques modernes en implémentant une pipeline de rendu complète.</p>
-                
+                <h2 data-i18n="projectDescriptionTitle">Description du projet</h2>
+                <p data-i18n="projectDescriptionText">Description a venir.</p>
+
                 <h2 data-i18n="mathChallengesTitle">Défis Mathématiques</h2>
-                <p data-i18n="mathChallengesText">Pour la gestion des caméras, j'ai dû implémenter des matrices de projection :</p>
-                <!-- Exemple d'équation LaTeX -->
-                <p>\[ P = \begin{pmatrix} \frac{1}{tan(\alpha/2)} & 0 & 0 & 0 \\ 0 & \frac{1}{tan(\alpha/2)} & 0 & 0 \\ 0 & 0 & \frac{f+n}{f-n} & \frac{-2fn}{f-n} \\ 0 & 0 & 1 & 0 \end{pmatrix} \]</p>
+                <p data-i18n="mathChallengesText">Description a venir.</p>
+
+                <h2 data-i18n="mathDescriptionTitle">Description mathématique</h2>
+                <p data-i18n="mathDescriptionText">Description a venir.</p>
             </div>
 
             <div class="detail-media">
-                <!-- Ici tu peux mettre une vidéo de ton projet ou une grande image -->
-                <div class="placeholder-media" data-i18n="placeholderVideo">Vidéo du moteur en action</div>
+                <h2 data-i18n="videoTitle">Vidéo</h2>
+                <div class="placeholder-media" data-i18n="placeholderVideo">Video a venir</div>
             </div>
         </section>
 
-        <section class="code-section">
-            <h2 data-i18n="codeTitle">Aperçu du Code (C++)</h2>
-            <pre><code>
-// Initialisation de l'instance Vulkan
-VkInstanceCreateInfo createInfo{};
-createInfo.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
-// ... suite du code
-            </code></pre>
+        <section class="detail-content">
+            <div class="detail-text">
+                <h2 data-i18n="visualTitle">Représentation visuelle</h2>
+                <p data-i18n="visualText">Description a venir.</p>
+            </div>
         </section>
+
     </main>
     <script src="../../annexe.js"></script>
 </body>
